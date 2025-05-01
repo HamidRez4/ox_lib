@@ -1,6 +1,6 @@
-if not ESX and not IsDuplicityVersion() then
-    ESX = exports['essentialmode']:getObject()
-end
+-- if not ESX and not IsDuplicityVersion() then
+--     ESX = exports['essentialmode']:getObject()
+-- end
 local debug_getinfo = debug.getinfo
 
 function noop() end

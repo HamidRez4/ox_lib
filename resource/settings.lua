@@ -52,58 +52,57 @@ local function set(key, value)
     return true
 end
 
-RegisterCommand('ox_lib', function()
-    if ESX.GetPlayerData().permission_level == 0 then return end
-    local inputSettings = {
-        {
-            type = 'checkbox',
-            label = locale('ui.settings.notification_audio'),
-            checked = settings.notification_audio,
-        },
-        {
-            type = 'select',
-            label = locale('ui.settings.notification_position'),
-            options = {
-                { label = locale('ui.position.top-right'),    value = 'top-right' },
-                { label = locale('ui.position.top'),          value = 'top' },
-                { label = locale('ui.position.top-left'),     value = 'top-left' },
-                { label = locale('ui.position.center-right'), value = 'center-right' },
-                { label = locale('ui.position.center-left'),  value = 'center-left' },
-                { label = locale('ui.position.bottom-right'), value = 'bottom-right' },
-                { label = locale('ui.position.bottom'),       value = 'bottom' },
-                { label = locale('ui.position.bottom-left'),  value = 'bottom-left' },
-            },
-            default = settings.notification_position,
-            required = true,
-            icon = 'message',
-        },
-    }
+-- RegisterCommand('ox_lib', function()
+--     local inputSettings = {
+--         {
+--             type = 'checkbox',
+--             label = locale('ui.settings.notification_audio'),
+--             checked = settings.notification_audio,
+--         },
+--         {
+--             type = 'select',
+--             label = locale('ui.settings.notification_position'),
+--             options = {
+--                 { label = locale('ui.position.top-right'),    value = 'top-right' },
+--                 { label = locale('ui.position.top'),          value = 'top' },
+--                 { label = locale('ui.position.top-left'),     value = 'top-left' },
+--                 { label = locale('ui.position.center-right'), value = 'center-right' },
+--                 { label = locale('ui.position.center-left'),  value = 'center-left' },
+--                 { label = locale('ui.position.bottom-right'), value = 'bottom-right' },
+--                 { label = locale('ui.position.bottom'),       value = 'bottom' },
+--                 { label = locale('ui.position.bottom-left'),  value = 'bottom-left' },
+--             },
+--             default = settings.notification_position,
+--             required = true,
+--             icon = 'message',
+--         },
+--     }
 
-    if userLocales then
-        table.insert(inputSettings,
-            {
-                type = 'select',
-                label = locale('ui.settings.locale'),
-                searchable = true,
-                description = locale('ui.settings.locale_description', settings.locale),
-                options = GlobalState['ox_lib:locales'],
-                default = settings.locale,
-                required = true,
-                icon = 'book',
-            })
-    end
+--     if userLocales then
+--         table.insert(inputSettings,
+--             {
+--                 type = 'select',
+--                 label = locale('ui.settings.locale'),
+--                 searchable = true,
+--                 description = locale('ui.settings.locale_description', settings.locale),
+--                 options = GlobalState['ox_lib:locales'],
+--                 default = settings.locale,
+--                 required = true,
+--                 icon = 'book',
+--             })
+--     end
 
-    local input = lib.inputDialog(locale('settings'), inputSettings) --[[@as table?]]
+--     local input = lib.inputDialog(locale('settings'), inputSettings) --[[@as table?]]
 
-    if not input then return end
+--     if not input then return end
 
-    ---@type boolean, string, string
-    local notification_audio, notification_position, locale = table.unpack(input)
+--     ---@type boolean, string, string
+--     local notification_audio, notification_position, locale = table.unpack(input)
 
-    if userLocales and set('locale', locale) then lib.setLocale(locale) end
+--     if userLocales and set('locale', locale) then lib.setLocale(locale) end
 
-    set('notification_position', notification_position)
-    set('notification_audio', notification_audio)
-end)
+--     set('notification_position', notification_position)
+--     set('notification_audio', notification_audio)
+-- end)
 
 return settings
