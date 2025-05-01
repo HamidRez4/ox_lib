@@ -27,7 +27,7 @@ const useStyles = createStyles((theme, params: { position?: TextUiPosition }) =>
     margin: 8,
     backgroundColor: theme.colors.dark[6],
     color: theme.colors.dark[0],
-    fontFamily: 'Roboto',
+    fontFamily: 'Vazirmatn',
     borderRadius: theme.radius.sm,
     boxShadow: theme.shadows.sm,
   },

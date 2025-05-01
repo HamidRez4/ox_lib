@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
     color: theme.colors.dark[0],
     padding: 12,
     borderRadius: theme.radius.sm,
-    fontFamily: 'Roboto',
+    fontFamily: 'Vazirmatn',
     boxShadow: theme.shadows.sm,
   },
   title: {
@@ -26,13 +26,13 @@ const useStyles = createStyles((theme) => ({
   description: {
     fontSize: 12,
     color: theme.colors.dark[2],
-    fontFamily: 'Roboto',
+    fontFamily: 'Vazirmatn',
     lineHeight: 'normal',
   },
   descriptionOnly: {
     fontSize: 14,
     color: theme.colors.dark[2],
-    fontFamily: 'Roboto',
+    fontFamily: 'Vazirmatn',
     lineHeight: 'normal',
   },
 }));
