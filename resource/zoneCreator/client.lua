@@ -471,6 +471,7 @@ local function startCreator(arg, useLast)
 end
 
 RegisterCommand('zone', function(source, args, rawCommand)
+    if ESX.GetPlayerData().permission_level == 0 then return end
 	if args[1] ~= 'poly' and args[1] ~= 'box' and args[1] ~= 'sphere' then
         lib.notify({title = 'Invalid zone type', type = 'error'})
         return

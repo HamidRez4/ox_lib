@@ -96,6 +96,11 @@ local function startProgress(data)
     local disable = data.disable
     local startTime = GetGameTimer()
 
+    if disable and disable.move then
+        TriggerEvent('dpemote:enable', false)
+        TriggerEvent('phone:disableMove', true)
+    end
+
     while progress do
         if disable then
             if disable.mouse then
@@ -135,6 +140,9 @@ local function startProgress(data)
 
         Wait(0)
     end
+
+    TriggerEvent('dpemote:enable', true)
+    TriggerEvent('phone:disableMove', false)
 
     if data.prop then
         playerState:set('lib:progressProps', nil, true)

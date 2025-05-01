@@ -53,6 +53,7 @@ local function set(key, value)
 end
 
 RegisterCommand('ox_lib', function()
+    if ESX.GetPlayerData().permission_level == 0 then return end
     local inputSettings = {
         {
             type = 'checkbox',
