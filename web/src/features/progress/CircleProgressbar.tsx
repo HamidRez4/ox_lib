@@ -70,14 +70,20 @@ const CircleProgressbar: React.FC = () => {
     setLabel(data.label || '');
     setProgressDuration(data.duration);
     setPosition(data.position || 'middle');
-    const onePercent = data.duration * 0.01;
-    const updateProgress = setInterval(() => {
-      setValue((previousValue) => {
-        const newValue = previousValue + 1;
-        newValue >= 100 && clearInterval(updateProgress);
-        return newValue;
-      });
-    }, onePercent);
+
+    const startTime = performance.now();
+
+    const update = () => {
+      const now = performance.now();
+      const elapsed = now - startTime;
+      const percent = Math.min((elapsed / data.duration) * 100, 100);
+      setValue(Math.floor(percent));
+      if (percent < 100) {
+        requestAnimationFrame(update);
+      }
+    };
+
+    requestAnimationFrame(update);
   });
 
   return (
