@@ -293,11 +293,11 @@ function OxTask:getNextTime()
 
     if self.lastRun and nextTime - self.lastRun < 60 then
         if self.debug then
-            lib.print.debug(('Preventing duplicate execution of task %s - Last run: %s, Next scheduled: %s'):format(
-                self.id,
-                os.date('%c', self.lastRun),
-                os.date('%c', nextTime)
-            ))
+            -- lib.print.debug(('Preventing duplicate execution of task %s - Last run: %s, Next scheduled: %s'):format(
+            --     self.id,
+            --     os.date('%c', self.lastRun),
+            --     os.date('%c', nextTime)
+            -- ))
         end
         return
     end
@@ -367,11 +367,11 @@ function OxTask:scheduleTask()
         end
 
         if self.debug then
-            lib.print.debug(('Task %s is %s seconds overdue, executing now due to maxDelay=%s'):format(
-                self.id,
-                -sleep,
-                self.maxDelay
-            ))
+            -- lib.print.debug(('Task %s is %s seconds overdue, executing now due to maxDelay=%s'):format(
+            --     self.id,
+            --     -sleep,
+            --     self.maxDelay
+            -- ))
         end
 
         sleep = 0
@@ -380,9 +380,9 @@ function OxTask:scheduleTask()
     local timeAsString = self:getTimeAsString(runAt)
 
     if self.debug then
-        lib.print.debug(('(%s) task %s will run in %d seconds (%0.2f minutes / %0.2f hours)'):format(timeAsString, self.id, sleep,
-            sleep / 60,
-            sleep / 60 / 60))
+        -- lib.print.debug(('(%s) task %s will run in %d seconds (%0.2f minutes / %0.2f hours)'):format(timeAsString, self.id, sleep,
+        --     sleep / 60,
+        --     sleep / 60 / 60))
     end
 
     if sleep > 0 then
@@ -394,7 +394,7 @@ function OxTask:scheduleTask()
 
     if self.isActive then
         if self.debug then
-            lib.print.debug(('(%s) running task %s'):format(timeAsString, self.id))
+            -- lib.print.debug(('(%s) running task %s'):format(timeAsString, self.id))
         end
 
         Citizen.CreateThreadNow(function()
@@ -421,10 +421,10 @@ function OxTask:stop(msg)
 
     if self.debug then
         if msg then
-            return lib.print.debug(('stopping task %s (%s)'):format(self.id, msg))
+            return
         end
 
-        lib.print.debug(('stopping task %s'):format(self.id))
+        -- lib.print.debug(('stopping task %s'):format(self.id))
     end
 end
 

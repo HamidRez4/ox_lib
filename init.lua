@@ -57,9 +57,9 @@ local function loadModule(self, module)
 
         if not fn or err then
             if shared then
-                lib.print.warn(("An error occurred when importing '@ox_lib/imports/%s'.\nThis is likely caused by improperly updating ox_lib.\n%s'")
-                    :format(module, err))
-                fn, err = load(shared, ('@@ox_lib/imports/%s/shared.lua'):format(module))
+                -- lib.print.warn(("An error occurred when importing '@ox_lib/imports/%s'.\nThis is likely caused by improperly updating ox_lib.\n%s'")
+                --     :format(module, err))
+                -- fn, err = load(shared, ('@@ox_lib/imports/%s/shared.lua'):format(module))
             end
 
             if not fn or err then

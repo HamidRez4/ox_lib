@@ -41,7 +41,7 @@ function lib.setValidCallback(callbackName, isValid)
             Citizen.InvokeNative(`FORMAT_STACK_TRACE` & 0xFFFFFFFF, nil, 0, Citizen.ResultAsString()) or ''))
     end
 
-    lib.print.verbose(("set valid callback '%s' for resource '%s'"):format(callbackName, resourceName))
+    -- lib.print.verbose(("set valid callback '%s' for resource '%s'"):format(callbackName, resourceName))
 
     registeredCallbacks[callbackName] = resourceName
 end

@@ -128,7 +128,7 @@ end
 ---@return nil
 function lib.scaleform:setProperties(x, y, width, height)
     if self.fullScreen then
-        lib.print.info('Cannot set properties when full screen is enabled')
+        -- lib.print.info('Cannot set properties when full screen is enabled')
         return
     end
 
